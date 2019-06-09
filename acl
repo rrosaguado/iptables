@@ -1,5 +1,7 @@
 acl tarda time MTWH 18:00 20:00
 acl pc1 dst 192.168.1.20
+acl denagados dstdomain www.youtube.com
 acl sex url_regex http://www.\..*sex*.*
-http_acces deny pc1 tarda
-http_acces deny sex
+acl pelis url_regex http://www.\..*mp4.* http://www.\..*avi.*
+http_acces deny pc1 !tarda
+http_acces deny sex tarda
